@@ -1,17 +1,20 @@
-<div class="u-flex u-flex-vertical u-height-100-percent">
-  <header class="main-header u-padding-inline-end-0">
+<div class="u-height-100-percent">
+  <header class="main-header">
     <a class="logo" href="/">
-      <img src="../assets/logo.svg" alt="logo">
+      <img src="../assets/logo.svg" alt="logo" class='logo'>
     </a>
-    <div class="main-header-end u-margin-inline-end-16">
-      <ul class="buttons-list is-with-padding">
-        <li class="buttons-list-item is-not-mobile u-padding-inline-0">
+    <div class="main-header-end">
+      <button class="icon-button is-only-mobile nav-btn" aria-label="Open Menu">
+        <span aria-hidden="true" class="icon-menu"></span>
+      </button>
+      <ul class="buttons-list is-with-padding is-not-mobile">
+        <li class="buttons-list-item u-padding-inline-0">
           <a href="https://github.com/katienuccio" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-text">
             <span class="icon-github" aria-hidden="true"></span>
             <span class="text">GitHub</span>
           </a>
         </li>
-        <li class="buttons-list-item is-not-mobile u-padding-inline-0">
+        <li class="buttons-list-item u-padding-inline-0">
           <a href="https://www.linkedin.com/in/katienuccio/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-text">
             <span class="icon-linkedin" aria-hidden="true" style='margin-bottom: 2px'></span>
             <span class="text">LinkedIn</span>
@@ -20,48 +23,107 @@
       </ul>
     </div>
   </header>
-  <div class='u-flex u-stretch'>
-    <div class='u-flex u-main-center u-flex-vertical u-margin-32'>
-      <h5 class='heading-level-5 u-text-center'>
-        Need a website? I'm your girl.
-      </h5>
-      <h2 class='heading-level-2 u-text-center'>
-        I have been building solid and scalable frontend products for 5+ years.
-      </h2>
-      <div class='u-flex u-main-center u-margin-32'>
-        <button class="button">
-          <span class="text">Get in touch</span>
-        </button>
+  <div class='container u-block' id='home'>
+    <div class='u-flex u-height-100-percent'>
+      <div class='u-flex u-main-center u-flex-vertical u-margin-32'>
+        <h5 class='heading-level-5 u-text-center'>
+          Need a website? I'm your girl.
+        </h5>
+        <h2 class='heading-level-2 u-text-center'>
+          I have been building solid and scalable frontend products for 5+ years.
+        </h2>
+        <div class='u-flex u-main-center u-margin-32'>
+          <button class="button" (click)='getInTouch()'>
+            <span class="text">Get in touch</span>
+          </button>
+        </div>
+        <div class='u-flex u-main-center u-cross-center u-flex-wrap' style="--grid-gap:1rem; --grid-item-size:1rem; --grid-item-size-small-screens:1rem;">
+          <a class="tag is-selected">
+            <span class="text">Angular</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">React</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">Ionic</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">Typescript</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">Node.js</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">AWS</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">Microsoft Azure</span>
+          </a>
+          <a class="tag is-selected">
+            <span class="text">GCP</span>
+          </a>
+        </div>
       </div>
-      <div class='u-flex u-main-center u-cross-center'>
-        <div class="tag">
-          <span class="text">Angular</span>
-        </div>
-        <div class="tag">
-          <span class="text">React</span>
-        </div>
-        <div class="tag">
-          <span class="text">Ionic</span>
-        </div>
-        <div class="tag">
-          <span class="text">Typescript</span>
-        </div>
-        <div class="tag">
-          <span class="text">Node.js</span>
-        </div>
-        <div class="tag">
-          <span class="text">AWS</span>
-        </div>
-        <div class="tag">
-          <span class="text">Microsoft Azure</span>
-        </div>
-        <div class="tag">
-          <span class="text">GCP</span>
-        </div>
+      <div class='u-flex u-cross-center u-main-center is-not-mobile'>
+        <img class='profile-picture' src='assets/profile-picture.jpg' alt='photo of me'>
       </div>
     </div>
-    <div class='u-flex u-cross-center'>
-      <img class='profile-picture' src='assets/profile-picture.jpg' alt='photo of me'>
+  </div>
+  <div class="container get-in-touch u-block" id='get-in-touch'>
+    <div class='u-flex u-main-center u-flex-vertical u-height-100-percent'>
+      <h3 class="title heading-level-3 u-margin-32 u-text-center u-color-text-white">Get In Touch</h3>
+      <form class="form u-margin-32 u-flex u-cross-center u-max-width-100-percent" [formGroup]='form' (ngSubmit)='submitForm()'>
+        <ul class="form-list u-min-width-100-percent u-cross-center">
+          <div class='u-flex u-main-center u-column-gap-12 u-flex-wrap'>
+            <li class="form-item u-max-width-500 u-width-full-line">
+              <label class="label u-color-text-white">Name <span>*</span></label>
+              <div class="input-text-wrapper" [ngClass]="{'isError': this.form.get('name')?.invalid && this.form.get('name')?.touched}">
+                <input type="text" class="input-text" required formControlName='name'/>
+              </div>
+              <p class="helper u-color-text-white u-margin-block-start-8">
+                <span class="icon-exclamation" aria-hidden="true"></span>
+                <span class="text">Name is required</span>
+              </p>
+            </li>
+            <li class="form-item u-max-width-500 u-width-full-line">
+              <label class="label u-color-text-white">Email <span>*</span></label>
+              <div class="input-text-wrapper" [ngClass]="{'isError': this.form.get('email')?.invalid && this.form.get('email')?.touched}">
+                <input type="email" class="input-text" required formControlName='email'/>
+              </div>
+              <p class="helper u-color-text-white u-margin-block-start-8">
+                <span class="icon-exclamation" aria-hidden="true"></span>
+                <span class="text">Email is required</span>
+              </p>
+            </li>
+          </div>
+          <li class="form-item u-width-full-line">
+            <div class='u-flex u-main-center'>
+              <div class='textarea-container u-width-full-line'>
+                <label class="label u-color-text-white">Message</label>
+                <textarea class="input-text textarea" formControlName='message'></textarea>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button class="button is-secondary" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
+    <footer class='footer'>
+      <div class='u-flex u-main-space-between u-color-text-white inner-footer'>
+      <span class='u-flex u-cross-center text'>
+        ⓒ Katie Nuccio
+      </span>
+        <div class='u-flex u-margin-0'>
+          <a href="https://github.com/katienuccio" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-text">
+            <span class="icon-github u-color-text-white" aria-hidden="true"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/katienuccio/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-text">
+            <span class="icon-linkedin u-color-text-white" aria-hidden="true" style='margin-bottom: 2px'></span>
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
 </div>

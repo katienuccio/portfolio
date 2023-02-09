@@ -1,9 +1,75 @@
-.profile-picture {
-  width: 75%;
-  overflow: hidden;
-  border-radius: 50%;
+.logo {
+  padding-top: 4px;
+  padding-left: 16px;
 }
 
-.tag {
-  margin: 0 5px;
+.container {
+  height: calc(100% - 64px);
+
+  .profile-picture {
+    width: 75%;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .tag {
+    margin: 5px;
+  }
+
+  &.get-in-touch {
+    background: hsl(var(--color-primary-200));
+    max-inline-size: unset;
+    position: relative;
+
+    > div {
+      padding-bottom: 120px;
+    }
+
+    .u-color-text-white {
+      color: white;
+    }
+
+    .form-list {
+      gap: 0;
+
+      .form-item {
+        .input-text-wrapper:not(.isError) + p {
+          visibility: hidden;
+        }
+
+        .textarea {
+          max-height: 150px;
+        }
+      }
+
+      @media (max-width: 1135px) {
+        .textarea-container {
+          max-width: 500px;
+        }
+      }
+
+      @media (min-width: 1136px) {
+        .textarea-container {
+          max-width: 1012px;
+        }
+      }
+    }
+
+    .button-container {
+      margin-top: 35px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      .inner-footer {
+        border-top: 1px solid white;
+        padding: 20px;
+        margin: 20px;
+      }
+    }
+  }
 }
