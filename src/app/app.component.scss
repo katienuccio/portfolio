@@ -5,6 +5,13 @@
 
 .container {
   height: calc(100% - 64px);
+  padding: 20px 0;
+
+  @media (max-width: 350px) {
+    .heading-level-2 {
+      font-size: 20px !important;
+    }
+  }
 
   .profile-picture {
     width: 75%;
@@ -22,7 +29,7 @@
     position: relative;
 
     > div {
-      padding-bottom: 120px;
+      padding: 60px 0 120px 0;
     }
 
     .u-color-text-white {
@@ -38,7 +45,7 @@
         }
 
         .textarea {
-          max-height: 150px;
+          max-height: 100px;
         }
       }
 
@@ -67,7 +74,7 @@
 
       .inner-footer {
         border-top: 1px solid white;
-        padding: 20px;
+        padding-top: 20px;
         margin: 20px;
       }
     }
