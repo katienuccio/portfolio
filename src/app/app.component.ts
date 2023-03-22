@@ -11,15 +11,25 @@ export class AppComponent {
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     message: new FormControl('')
-  })
+  });
 
-  getInTouch() {
-    const element = document.getElementById('get-in-touch');
-    element?.scrollIntoView({ behavior: 'smooth' })
+  isSideNavOpen = false;
+
+
+  scrollTo(id: string) {
+    this.isSideNavOpen = false;
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 100)
   }
 
   submitForm() {
     this.form.markAllAsTouched();
     console.log(this.form);
+  }
+
+  openSideNav() {
+    this.isSideNavOpen = !this.isSideNavOpen;
   }
 }

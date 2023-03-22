@@ -1,29 +1,45 @@
+<header class="main-header">
+  <a class="logo" (click)='scrollTo("home")'>
+    <img src="../assets/logo.svg" alt="logo">
+  </a>
+  <div class="main-header-end">
+    <button class="icon-button is-only-mobile nav-btn" aria-label="Open Menu">
+      <span aria-hidden="true" class="icon-menu" (click)='openSideNav()'></span>
+    </button>
+    <ul class="buttons-list is-with-padding is-not-mobile">
+      <li class="buttons-li-item u-padding-inline-0">
+        <a (click)='scrollTo("projects")' title="Projects" class="button is-text">
+          <span class="text">Projects</span>
+        </a>
+      </li>
+      <li class="buttons-li-item u-padding-inline-0">
+        <a (click)='scrollTo("get-in-touch")' title="Get In Touch" class="button is-text">
+          <span class="text">Get In Touch</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
 <div class="u-height-100-percent">
-  <header class="main-header">
-    <a class="logo" href="/">
-      <img src="../assets/logo.svg" alt="logo" class='logo'>
-    </a>
-    <div class="main-header-end">
-      <button class="icon-button is-only-mobile nav-btn" aria-label="Open Menu">
-        <span aria-hidden="true" class="icon-menu"></span>
-      </button>
-      <ul class="buttons-list is-with-padding is-not-mobile">
-        <li class="buttons-list-item u-padding-inline-0">
-          <a href="https://github.com/katienuccio" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-text">
-            <span class="icon-github" aria-hidden="true"></span>
-            <span class="text">GitHub</span>
-          </a>
-        </li>
-        <li class="buttons-list-item u-padding-inline-0">
-          <a href="https://www.linkedin.com/in/katienuccio/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-text">
-            <span class="icon-linkedin" aria-hidden="true" style='margin-bottom: 2px'></span>
-            <span class="text">LinkedIn</span>
-          </a>
-        </li>
-      </ul>
+  <div class="side-nav container" *ngIf='isSideNavOpen'>
+    <div class="side-nav-main">
+      <section class="drop-section">
+        <ul class="drop-list">
+          <li class="drop-li-item u-padding-inline-0">
+            <a (click)='scrollTo("projects")' title="Projects" class="drop-button is-text">
+              <span class="text">Projects</span>
+            </a>
+          </li>
+          <li class="drop-li-item u-padding-inline-0">
+            <a (click)='scrollTo("get-in-touch")' title="Get In Touch" class="drop-button is-text">
+              <span class="text">Get In Touch</span>
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
-  </header>
-  <div class='container u-block' id='home'>
+  </div>
+  <div class='container u-block' *ngIf='!isSideNavOpen' id='home'>
     <div class='u-flex u-height-100-percent'>
       <div class='u-flex u-main-center u-flex-vertical u-margin-32'>
         <h5 class='heading-level-5 u-text-center'>
@@ -33,7 +49,7 @@
           I have been building solid and scalable frontend products for 5+ years.
         </h2>
         <div class='u-flex u-main-center u-margin-32'>
-          <button class="button" (click)='getInTouch()'>
+          <button class="button" (click)='scrollTo("get-in-touch")'>
             <span class="text">Get in touch</span>
           </button>
         </div>
@@ -69,28 +85,51 @@
       </div>
     </div>
   </div>
-  <div class="container get-in-touch u-block" id='get-in-touch'>
+  <div class="container u-block u-background-color-pink" *ngIf='!isSideNavOpen' id='projects'>
+    <div class='u-flex u-flex-vertical u-height-100-percent u-padding-32'>
+      <div class='u-title'>
+        <h3 class="title heading-level-3 u-text-center u-color-text-white">Projects</h3>
+        <h6 class='heading-level-6 u-text-center u-color-text-white'>Selected projects I've worked on in the past.</h6>
+      </div>
+      <div class="u-flex u-main-center u-max-width-100-percent u-cross-center u-color-text-white u-flex-wrap grid-box"
+           style="height: 65%">
+        <a href='/' class=''>
+          <article class="card">
+            <img src='assets/portfolio.png' alt='my portfolio image'>
+            <h5 class="heading-level-5 u-text-center">My Portfolio</h5>
+          </article>
+        </a>
+        <a href='http://dev.myreclosingteam.com/' class=''>
+          <article class="card">
+            <img src='assets/myreclosingteam.png' alt='my re closing team image'>
+            <h5 class="heading-level-5 u-text-center">My Re Closing Team</h5>
+          </article>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container get-in-touch u-block" id='get-in-touch' *ngIf='!isSideNavOpen' style='--p-container-max-size: none'>
     <div class='u-flex u-main-center u-flex-vertical u-height-100-percent'>
-      <h3 class="title heading-level-3 u-text-center u-color-text-white">Get In Touch</h3>
+      <h3 class="title heading-level-3 u-text-center">Get In Touch</h3>
       <form class="form u-margin-32 u-flex u-cross-center u-max-width-100-percent" [formGroup]='form' (ngSubmit)='submitForm()'>
         <ul class="form-list u-min-width-100-percent u-cross-center">
           <div class='u-flex u-main-center u-column-gap-12 u-flex-wrap'>
             <li class="form-item u-max-width-500 u-width-full-line">
-              <label class="label u-color-text-white">Name <span>*</span></label>
+              <label class="label">Name <span>*</span></label>
               <div class="input-text-wrapper" [ngClass]="{'isError': this.form.get('name')?.invalid && this.form.get('name')?.touched}">
                 <input type="text" class="input-text" required formControlName='name'/>
               </div>
-              <p class="helper u-color-text-white u-margin-block-start-8">
+              <p class="helper u-margin-block-start-8">
                 <span class="icon-exclamation" aria-hidden="true"></span>
                 <span class="text">Name is required</span>
               </p>
             </li>
             <li class="form-item u-max-width-500 u-width-full-line">
-              <label class="label u-color-text-white">Email <span>*</span></label>
+              <label class="label">Email <span>*</span></label>
               <div class="input-text-wrapper" [ngClass]="{'isError': this.form.get('email')?.invalid && this.form.get('email')?.touched}">
                 <input type="email" class="input-text" required formControlName='email'/>
               </div>
-              <p class="helper u-color-text-white u-margin-block-start-8">
+              <p class="helper u-margin-block-start-8">
                 <span class="icon-exclamation" aria-hidden="true"></span>
                 <span class="text">Email is required</span>
               </p>
@@ -99,28 +138,28 @@
           <li class="form-item u-width-full-line">
             <div class='u-flex u-main-center'>
               <div class='textarea-container u-width-full-line'>
-                <label class="label u-color-text-white">Message</label>
+                <label class="label">Message</label>
                 <textarea class="input-text textarea" formControlName='message'></textarea>
               </div>
             </div>
           </li>
         </ul>
         <div class="button-container">
-          <button class="button is-secondary" type="submit">Submit</button>
+          <button class="button is-primary" type="submit">Submit</button>
         </div>
       </form>
     </div>
     <footer class='footer'>
-      <div class='u-flex u-main-space-between u-color-text-white inner-footer'>
+      <div class='u-flex u-main-space-between inner-footer'>
       <span class='u-flex u-cross-center text'>
         ⓒ Katie Nuccio
       </span>
         <div class='u-flex u-margin-0'>
           <a href="https://github.com/katienuccio" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-text">
-            <span class="icon-github u-color-text-white" aria-hidden="true"></span>
+            <span class="icon-github" aria-hidden="true"></span>
           </a>
           <a href="https://www.linkedin.com/in/katienuccio/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-text">
-            <span class="icon-linkedin u-color-text-white" aria-hidden="true" style='margin-bottom: 2px'></span>
+            <span class="icon-linkedin" aria-hidden="true" style='margin-bottom: 2px'></span>
           </a>
         </div>
       </div>

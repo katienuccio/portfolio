@@ -1,16 +1,26 @@
-.logo {
-  padding-top: 4px;
-  padding-left: 16px;
+.main-header {
+  position: fixed;
+  width: 100%;
+
+  .logo {
+    padding-top: 4px;
+    padding-left: 16px;
+  }
 }
 
 .container {
-  height: calc(100% - 64px);
-  padding: 20px 0;
+  height: 100%;
+  padding-top: 64px;
+  padding-bottom: 20px;
 
   @media (max-width: 350px) {
     .heading-level-2 {
       font-size: 20px !important;
     }
+  }
+
+  &.side-nav {
+    padding-top: 64px;
   }
 
   .profile-picture {
@@ -23,17 +33,30 @@
     margin: 5px;
   }
 
+  .card {
+    max-width: 350px;
+    padding: 0;
+    border: none;
+
+    &:hover, &active {
+      box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
+      transform: translateY(-5px);
+    }
+
+    img {
+      border-radius: 16px 16px 0 0;
+    }
+
+    h5 {
+      padding: 32px;
+    }
+  }
+
   &.get-in-touch {
-    background: hsl(var(--color-primary-200));
-    max-inline-size: unset;
     position: relative;
 
     > div {
       padding: 60px 0 120px 0;
-    }
-
-    .u-color-text-white {
-      color: white;
     }
 
     .form {
@@ -77,10 +100,23 @@
       width: 100%;
 
       .inner-footer {
-        border-top: 1px solid white;
+        border-top: 1px solid #373B4E;
         padding-top: 20px;
         margin: 20px;
       }
     }
   }
+}
+
+.u-background-color-pink {
+  background: hsl(var(--color-primary-200));
+  max-inline-size: unset;
+}
+
+.u-color-text-white {
+  color: white;
+}
+
+.u-title {
+  margin: 32px 0;
 }
