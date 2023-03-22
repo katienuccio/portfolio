@@ -7,6 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor() {
+    console.log('testing');
+  }
+
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
