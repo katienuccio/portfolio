@@ -1,12 +1,12 @@
 export const environment = {
-  production: true,
-  firebase: {
-    apiKey: "hidden",
-    authDomain: "katie-nuccio-portfolio.firebaseapp.com",
-    projectId: "katie-nuccio-portfolio",
-    storageBucket: "katie-nuccio-portfolio.appspot.com",
-    messagingSenderId: "hidden",
-    appId: "hidden",
-    measurementId: "hidden"
-  }
+   production: true,
+   firebase: {
+        apiKey: 'undefined',
+        authDomain: "katie-nuccio-portfolio.firebaseapp.com",
+        projectId: "katie-nuccio-portfolio",
+        storageBucket: "katie-nuccio-portfolio.appspot.com",
+        messagingSenderId: "undefined",
+        appId: "undefined",
+        measurementId: "undefined"
+   }
 };
