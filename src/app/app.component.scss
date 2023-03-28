@@ -70,7 +70,13 @@
         }
 
         h5 {
-          padding: 32px;
+          @media (max-width: 1135px) {
+            padding: 20px;
+          }
+
+          @media (min-width: 1135px) {
+            padding: 32px;
+          }
         }
       }
     }
