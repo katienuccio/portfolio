@@ -5,6 +5,12 @@
   .logo {
     padding-top: 4px;
     padding-left: 16px;
+    cursor: pointer;
+
+    h1 {
+      font-size: 32px;
+      text-shadow: 0.5px 0.5px 0.5px gray;
+    }
   }
 }
 
@@ -118,5 +124,11 @@
 }
 
 .u-title {
-  margin: 32px 0;
+  @media (max-width: 1135px) {
+    margin: 0 0 32px 0;
+  }
+
+  @media (min-width: 1135px) {
+    margin: 32px 0;
+  }
 }
