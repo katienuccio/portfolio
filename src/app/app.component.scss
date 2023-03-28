@@ -39,22 +39,40 @@
     margin: 5px;
   }
 
-  .card {
-    max-width: 350px;
-    padding: 0;
-    border: none;
-
-    &:hover, &active {
-      box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
-      transform: translateY(-5px);
+  .project-container {
+    @media (max-width: 1135px) {
+      padding: 10px 15px 0;
     }
 
-    img {
-      border-radius: 16px 16px 0 0;
-    }
-
-    h5 {
+    @media (min-width: 1135px) {
       padding: 32px;
+    }
+
+    .articles-container {
+      height: 65%;
+
+      @media (max-width: 1135px) {
+        gap: 10px;
+      }
+
+      .card {
+        max-width: 350px;
+        padding: 0;
+        border: none;
+
+        &:hover, &active {
+          box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
+          transform: translateY(-5px);
+        }
+
+        img {
+          border-radius: 16px 16px 0 0;
+        }
+
+        h5 {
+          padding: 32px;
+        }
+      }
     }
   }
 

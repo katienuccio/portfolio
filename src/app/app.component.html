@@ -4,7 +4,7 @@
   </a>
   <div class="main-header-end">
     <button class="icon-button is-only-mobile nav-btn" aria-label="Open Menu">
-      <span aria-hidden="true" class="icon-menu" (click)='openSideNav()'></span>
+      <span aria-hidden="true" class="icon-menu" style="font-size: 2rem" (click)='openSideNav()'></span>
     </button>
     <ul class="buttons-list is-with-padding is-not-mobile">
       <li class="buttons-li-item u-padding-inline-0">
@@ -27,12 +27,12 @@
         <ul class="drop-list">
           <li class="drop-li-item u-padding-inline-0">
             <a (click)='scrollTo("projects")' title="Projects" class="drop-button is-text">
-              <span class="text">Projects</span>
+              <h5 class="heading-level-5">Projects</h5>
             </a>
           </li>
           <li class="drop-li-item u-padding-inline-0">
             <a (click)='scrollTo("get-in-touch")' title="Get In Touch" class="drop-button is-text">
-              <span class="text">Get In Touch</span>
+              <h5 class="heading-level-5">Get In Touch</h5>
             </a>
           </li>
         </ul>
@@ -86,13 +86,12 @@
     </div>
   </div>
   <div class="container u-block u-background-color-pink" *ngIf='!isSideNavOpen' id='projects'>
-    <div class='u-flex u-flex-vertical u-height-100-percent u-padding-32'>
+    <div class='u-flex u-flex-vertical u-height-100-percent project-container'>
       <div class='u-title'>
         <h3 class="title heading-level-3 u-text-center u-color-text-white">Projects</h3>
         <h6 class='heading-level-6 u-text-center u-color-text-white'>Selected projects I've worked on in the past.</h6>
       </div>
-      <div class="u-flex u-main-center u-max-width-100-percent u-cross-center u-color-text-white u-flex-wrap grid-box"
-           style="height: 65%">
+      <div class="u-flex u-main-center u-max-width-100-percent u-cross-center u-color-text-white u-flex-wrap grid-box articles-container">
         <a href='/' class=''>
           <article class="card">
             <img src='assets/portfolio.png' alt='my portfolio image'>
