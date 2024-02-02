@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {
-    console.log('testing');
-  }
 
-  form = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    message: new FormControl('')
+  form = new UntypedFormGroup({
+    name: new UntypedFormControl('', Validators.required),
+    email: new UntypedFormControl('', Validators.required),
+    message: new UntypedFormControl('')
   });
 
   isSideNavOpen = false;
